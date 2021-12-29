@@ -4,7 +4,8 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "chokidar 'src/**/*' 'types/**/*' -c 'pnpm run build'",
-    "build": "scripts/build.mjs"
+    "build": "scripts/build.mjs",
+    "sync-local": "pnpm run build && scripts/sync-local.mjs"
   },
   "devDependencies": {
     "@muxiu1997/eslint-config": "0.5.0",
