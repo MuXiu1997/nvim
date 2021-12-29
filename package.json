@@ -3,6 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
+    "dev": "chokidar 'src/**/*' 'types/**/*' -c 'pnpm run build'",
+    "build": "scripts/build.mjs"
   },
   "devDependencies": {
     "@muxiu1997/eslint-config": "0.5.0",
