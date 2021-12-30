@@ -18,7 +18,7 @@ const editor = defineModule({
 
   'phaazon/hop.nvim': {
     config: () => {
-      require<{ setup: (this: void, opts?: unknown) => void }>('hop').setup()
+      require<Setupable>('hop').setup()
       vim.api.nvim_set_keymap(
         'n',
         '<TAB><TAB>',

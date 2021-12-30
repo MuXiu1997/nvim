@@ -34,3 +34,8 @@ declare interface PluginConf {
 declare type Plugin = PluginConf & {
   1: string
 }
+
+/** @noSelf **/
+declare interface Setupable<O extends Array<any> = any> {
+  setup(...opts: O): void
+}
