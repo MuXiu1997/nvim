@@ -79,11 +79,16 @@ function loadCompiled() {
   }
 }
 
+function loadPackerCommands() {
+  loadPacker()
+  packer.make_commands()
+}
+
 vim.cmd(
   `autocmd User PackerCompileDone lua require('core.plugins').loadCompiled()`
 )
 vim.cmd(
-  `command! LoadPackerCommands lua require('core.plugins').loadPacker();require('packer').make_commands()`
+  `command! LoadPackerCommands lua require('core.plugins').loadPackerCommands()`
 )
 
-export { ensurePlugins, loadPacker, loadCompiled }
+export { ensurePlugins, loadPacker, loadCompiled, loadPackerCommands }

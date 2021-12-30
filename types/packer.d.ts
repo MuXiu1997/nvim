@@ -5,4 +5,5 @@ declare interface Packer {
   use: (plugin: Plugin) => void
   install: () => void
   sync: () => void
+  make_commands: () => void
 }
