@@ -10,5 +10,8 @@ declare global {
   function require<T>(modname: string): T
 
   function __wilder_start():void
+
+  function __coc_tab():string
+  function __coc_cr():string
 }
 export {}

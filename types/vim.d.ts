@@ -56,6 +56,12 @@ declare interface Api {
       unique?: boolean
     }
   ): void
+  nvim_replace_termcodes(
+    str: string,
+    fromPart: boolean,
+    doLt: boolean,
+    special: boolean
+  ): string
 }
 
 /** @noSelf **/
