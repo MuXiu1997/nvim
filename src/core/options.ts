@@ -26,8 +26,6 @@ setOptions({
 
   // window
   cursorline: true,
-  list: true,
-  listchars: 'tab:--,trail:.',
   number: true,
   relativenumber: true,
   wrap: false,
@@ -46,4 +44,8 @@ if (global.isMac) {
     },
     cache_enabled: 0,
   }
+}
+
+if (vim.fn.has('termguicolors')) {
+  vim.opt.termguicolors = true
 }

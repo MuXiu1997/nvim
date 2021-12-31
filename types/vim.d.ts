@@ -1,7 +1,7 @@
 /** @noSelf **/
 declare interface Vim {
-  api: Api
-  fn: Fn
+  api: Api & { [k in string]: (this: void, ...args: any) => any }
+  fn: Fn & { [k in string]: (this: void, ...args: any) => any }
   loop: Loop
 
   g: Record<string, unknown>
@@ -25,12 +25,19 @@ declare interface Vim {
 /** @noSelf **/
 declare interface Fn {
   empty(expr: unknown): 1 | 0
+
   filereadable(file: string): 1 | 0
+
   glob(expr: unknown): string
+
   globpath(path: string, expr: string): string
+
   join(list: Array<unknown>, sep?: string): string
+
   stdpath(what: 'cache' | 'config' | 'data'): string
+
   stdpath(what: 'config_dirs' | 'data_dirs'): Array<string>
+
   system(cmd: string | Array<string>): string
 }
 
@@ -50,6 +57,7 @@ declare interface Api {
     }
   ): void
 }
+
 /** @noSelf **/
 declare interface Loop {
   os_uname(): {

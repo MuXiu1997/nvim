@@ -3,6 +3,10 @@ import { defineModule } from '../lib/plugin'
 const editor = defineModule({
   'tpope/vim-surround': {},
 
+  'tpope/vim-repeat': {},
+
+  'tpope/vim-speeddating': {},
+
   'tommcdo/vim-exchange': {},
 
   'michaeljsmith/vim-indent-object': {},
@@ -21,10 +25,17 @@ const editor = defineModule({
       require<Setupable>('hop').setup()
       vim.api.nvim_set_keymap(
         'n',
-        '<TAB><TAB>',
-        '<cmd>lua require("hop").hint_char1()<CR>',
+        '<Tab><Tab>',
+        '<Cmd>lua require("hop").hint_char1()<CR>',
         {}
       )
+    },
+  },
+
+  'windwp/nvim-ts-autotag': {
+    after: 'nvim-treesitter',
+    config: () => {
+      require<Setupable>('nvim-ts-autotag').setup()
     },
   },
 })

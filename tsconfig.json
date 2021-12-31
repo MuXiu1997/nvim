@@ -12,6 +12,18 @@
   "tstl": {
     "luaTarget": "5.1",
     "buildMode": "default",
-    "noResolvePaths": ["packer", "_compiled", "hop"]
+    "noResolvePaths": [
+      "packer",
+      "_compiled",
+      "hop",
+      "nvim-tree",
+      "indent_blankline",
+      "nord",
+      "nvim-treesitter.configs",
+      "nvim-ts-autotag",
+      "cmp",
+      "nvim-tree.config",
+      "colorizer"
+    ]
   }
 }
