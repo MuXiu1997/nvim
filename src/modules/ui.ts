@@ -1,8 +1,5 @@
 import { defineModule } from '../lib/plugin'
 
-import type * as option from '../lib/option'
-import type * as util from '../lib/util'
-
 const ui = defineModule({
   'arcticicestudio/nord-vim': {
     config: () => {
@@ -12,7 +9,10 @@ const ui = defineModule({
 
   'itchyny/lightline.vim': {
     config: () => {
-      require<typeof option>('../lib/option').setOptions({
+      const { setOptions } =
+        require('../lib/option') as typeof import('../lib/option')
+
+      setOptions({
         showmode: false,
         laststatus: 2,
       })
@@ -29,12 +29,12 @@ const ui = defineModule({
   'kyazdani42/nvim-tree.lua': {
     requires: ['kyazdani42/nvim-web-devicons'],
     config: () => {
-      const treeCb = require<{
+      const treeCb = typeRequire<{
         nvim_tree_callback: (this: void, name: string) => string
       }>('nvim-tree.config').nvim_tree_callback
       const toggleKey = '<Tab>e'
       const toggleCb = ':NvimTreeToggle<CR>'
-      require<Setupable>('nvim-tree').setup({
+      typeRequire<Setupable>('nvim-tree').setup({
         disable_netrw: true,
         hijack_netrw: true,
         view: {
@@ -87,11 +87,13 @@ const ui = defineModule({
 
   'lukas-reineke/indent-blankline.nvim': {
     config: () => {
-      require<typeof option>('../lib/option').setOptions({
+      const { setOptions } =
+        require('../lib/option') as typeof import('../lib/option')
+      setOptions({
         list: true,
         listchars: 'tab:--,trail:.,space:⋅,',
       })
-      require<Setupable>('indent_blankline').setup({
+      typeRequire<Setupable>('indent_blankline').setup({
         show_end_of_line: false,
       })
     },
@@ -146,8 +148,8 @@ const ui = defineModule({
 \\ }),
 \\ }))`)
 
-        const arrayForEach = require<typeof util>('../lib/util').arrayForEach
-        const recordForEach = require<typeof util>('../lib/util').recordForEach
+        const { arrayForEach, recordForEach } =
+          require('../lib/util') as typeof import('../lib/util')
         recordForEach(
           {
             next: ['<C-j>', '<C-n>', '<Tab>'],
@@ -184,7 +186,7 @@ const ui = defineModule({
       const hsl_fn = false
       const css = false
       const css_fn = false
-      require<Setupable>('colorizer').setup(
+      typeRequire<Setupable>('colorizer').setup(
         {
           1: 'html',
           2: 'css',

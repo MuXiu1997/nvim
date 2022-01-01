@@ -1,16 +1,16 @@
 import { defineModule } from '../lib/plugin'
 
-import type * as mapping from '../lib/mapping'
-import type * as option from '../lib/option'
-
 const completion = defineModule({
   'neoclide/coc.nvim': {
     branch: 'release',
     config: () => {
-      require<typeof option>('../lib/option').setOptions({
+      const { setOptions } =
+        require('../lib/option') as typeof import('../lib/option')
+      const { t } = require('../lib/mapping') as typeof import('../lib/mapping')
+
+      setOptions({
         signcolumn: 'number',
       })
-      const t = require<typeof mapping>('../lib/mapping').t
 
       vim.g.coc_global_extensions = [
         'coc-tabnine',

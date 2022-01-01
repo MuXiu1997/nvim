@@ -10,7 +10,7 @@ import type { Module } from '../lib/plugin'
 let packer: Packer
 
 function requirePacker() {
-  return require<typeof packer>('packer')
+  return typeRequire<Packer>('packer')
 }
 
 function ensurePlugins() {
@@ -44,7 +44,7 @@ function getModules() {
   )
   return arrayMap(modulePaths, (i, p) => {
     const moduleName = string.sub(p, global.modulesPath.length + 2, -5)
-    return require<{ default: Module }>(`modules/${moduleName}`).default
+    return typeRequire<{ default: Module }>(`modules/${moduleName}`).default
   })
 }
 
@@ -73,7 +73,7 @@ function loadPacker() {
 
 function loadCompiled() {
   if (vim.fn.filereadable(global.compiledPath) === 1) {
-    require('_compiled')
+    typeRequire('_compiled')
   } else {
     error('Missing packer compiled file')
   }

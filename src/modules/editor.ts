@@ -26,7 +26,7 @@ const editor = defineModule({
   'phaazon/hop.nvim': {
     event,
     config: () => {
-      require<Setupable>('hop').setup()
+      typeRequire<Setupable>('hop').setup()
       vim.api.nvim_set_keymap(
         'n',
         '<Tab><Tab>',
@@ -39,7 +39,7 @@ const editor = defineModule({
   'windwp/nvim-ts-autotag': {
     after: 'nvim-treesitter', // BufRead
     config: () => {
-      require<Setupable>('nvim-ts-autotag').setup()
+      typeRequire<Setupable>('nvim-ts-autotag').setup()
     },
   },
 })

@@ -1,4 +1,4 @@
-function _G.pprint(...)
+_G.pprint = function(...)
     local objects = {}
     for i = 1, select('#', ...) do
         local v = select(i, ...)
@@ -7,6 +7,10 @@ function _G.pprint(...)
 
     print(table.concat(objects, '\n'))
     return ...
+end
+
+_G.typeRequire = function(modname)
+    return require(modname)
 end
 
 require('core')
