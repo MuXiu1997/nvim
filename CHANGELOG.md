@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/MuXiu1997/nvim/compare/v0.1.0...v0.2.0) (2022-01-02)
+
+
+### Features
+
+* 🎸 add a few plugins ([a7013de](https://github.com/MuXiu1997/nvim/commit/a7013dee91b49a651dbe74610611a8879de207ab))
+* 🎸 add bufferline ([036683c](https://github.com/MuXiu1997/nvim/commit/036683cf41a3e5c4e2d1a453cbb940e91b0e957d))
+* 🎸 add coc ([6e45b6c](https://github.com/MuXiu1997/nvim/commit/6e45b6ceb35b57a34d9dd87dbd5e78343b3a6ebd))
+* 🎸 coc-settings ([5dc719c](https://github.com/MuXiu1997/nvim/commit/5dc719cef1b6c6f138f8c1e7e8459b56e65c04bc))
+* 🎸 load editor module plugins with events ([c6643bb](https://github.com/MuXiu1997/nvim/commit/c6643bb3ee2f93298b7fbd50a4f5b76c60aaa3e0))
+
 ## 0.1.0 (2021-12-29)
 
 
