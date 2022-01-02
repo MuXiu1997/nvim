@@ -38,13 +38,8 @@ function ensurePlugins() {
 }
 
 function getModules() {
-  const modulePaths = vim.split(
-    vim.fn.globpath(global.modulesPath, '*.lua'),
-    '\n'
-  )
-  return arrayMap(modulePaths, (i, p) => {
-    const moduleName = string.sub(p, global.modulesPath.length + 2, -5)
-    return typeRequire<{ default: Module }>(`modules/${moduleName}`).default
+  return arrayMap(__modules, (_, m) => {
+    return typeRequire<{ default: Module }>(m).default
   })
 }
 

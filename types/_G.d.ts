@@ -11,6 +11,7 @@ declare global {
 
   function __wilder_start():void
 
+  const __modules: Array<string>
   function __coc_tab():string
   function __coc_cr():string
 }

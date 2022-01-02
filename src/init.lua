@@ -13,5 +13,7 @@ _G.typeRequire = function(modname)
     return require(modname)
 end
 
+_G.__modules = {}
+
 require('core')
 
