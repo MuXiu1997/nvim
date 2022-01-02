@@ -85,6 +85,65 @@ const ui = defineModule({
     },
   },
 
+  'akinsho/bufferline.nvim': {
+    requires: 'kyazdani42/nvim-web-devicons',
+    config: () => {
+      typeRequire<Setupable>('bufferline').setup({
+        highlights: {},
+        options: {
+          tab_size: 1,
+          diagnostics: 'coc',
+          diagnostics_update_in_insert: true,
+          separator_style: 'padded_slant',
+          offsets: [
+            {
+              filetype: 'NvimTree',
+              // TODO: dir basename
+              text: 'File Explorer',
+              text_align: 'center',
+              highlight: 'Directory',
+            },
+          ],
+          custom_areas: {
+            right: () => {
+              const result = []
+              const cocDiagnosticInfo = vim.b.coc_diagnostic_info as {
+                error: number
+                warning: number
+                hint: number
+                information: number
+              }
+
+              const { error, warning, hint, information } = cocDiagnosticInfo
+
+              if (error !== 0)
+                result[result.length] = {
+                  text: `  ${error}`,
+                  guifg: '#EC5241',
+                }
+              if (warning !== 0)
+                result[result.length] = {
+                  text: `  ${warning}`,
+                  guifg: '#EFB839',
+                }
+              if (hint !== 0)
+                result[result.length] = {
+                  text: `  ${hint}`,
+                  guifg: '#A3BA5E',
+                }
+              if (information !== 0)
+                result[result.length] = {
+                  text: `  ${information}`,
+                  guifg: '#7EA9A7',
+                }
+              return result
+            },
+          },
+        },
+      })
+    },
+  },
+
   'lukas-reineke/indent-blankline.nvim': {
     config: () => {
       const { setOptions } =

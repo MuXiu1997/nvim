@@ -5,6 +5,7 @@ declare interface Vim {
   loop: Loop
 
   g: Record<string, unknown>
+  b: Record<string, unknown>
   o: Record<string, unknown>
 
   opt: Record<string, unknown>
@@ -33,6 +34,8 @@ declare interface Fn {
   globpath(path: string, expr: string): string
 
   join(list: Array<unknown>, sep?: string): string
+
+  split(string: string, pattern?: string, keepempty?: boolean): Array<string>
 
   stdpath(what: 'cache' | 'config' | 'data'): string
 
