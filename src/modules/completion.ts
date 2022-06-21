@@ -14,14 +14,9 @@ const completion = defineModule({
 
       vim.g.coc_global_extensions = [
         'coc-tabnine',
-        'coc-html',
-        'coc-yaml',
-        'coc-tsserver',
         'coc-sh',
         'coc-pyright',
         'coc-json',
-        'coc-css',
-        '@yaegassy/coc-volar',
       ]
 
       const checkBackSpace = () => {
