@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/MuXiu1997/nvim/compare/v0.2.0...v0.3.0) (2022-06-21)
+
+
+### Features
+
+* 🎸 Add Options for `Neovide` ([1029d36](https://github.com/MuXiu1997/nvim/commit/1029d36fed1255bb4ee86a2563a5854981a884c9))
+* 🎸 Add some mappings ([9ba096e](https://github.com/MuXiu1997/nvim/commit/9ba096e8d4fc3ac86d2af0e713469cff66b44bb2))
+* 🎸 Remove some extensions in `coc` ([566ef13](https://github.com/MuXiu1997/nvim/commit/566ef13929a637cda1a2b87c3197b9c16df29c9c))
+* 🎸 Update ui module ([fb4fdc9](https://github.com/MuXiu1997/nvim/commit/fb4fdc9d3c47627dd61944b55c21662d47f62215))
+
 ## [0.2.0](https://github.com/MuXiu1997/nvim/compare/v0.1.0...v0.2.0) (2022-01-02)
 
 
