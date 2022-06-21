@@ -2,6 +2,7 @@ import { defineModule } from '../lib/plugin'
 
 const ui = defineModule({
   'arcticicestudio/nord-vim': {
+    tag: '*',
     config: () => {
       vim.cmd('colorscheme nord')
     },
@@ -18,6 +19,10 @@ const ui = defineModule({
       })
       vim.g.lightline = {
         colorscheme: 'nord',
+        enable: {
+          statusline: true,
+          tabline: false,
+        },
       }
     },
   },
@@ -86,6 +91,7 @@ const ui = defineModule({
   },
 
   'akinsho/bufferline.nvim': {
+    tag: '*',
     requires: 'kyazdani42/nvim-web-devicons',
     config: () => {
       typeRequire<Setupable>('bufferline').setup({
