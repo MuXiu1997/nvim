@@ -1,11 +1,3 @@
 {
-  "coc.preferences.extensionUpdateCheck": "daily",
-  "yaml.schemas": {
-    "https://json.schemastore.org/github-workflow.json": [
-      ".github/workflow/*.{yml,yaml}"
-    ],
-    "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json": [
-      "**/docker-compose.{yml,yaml}"
-    ]
-  }
+  "coc.preferences.extensionUpdateCheck": "daily"
 }
