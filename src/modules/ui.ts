@@ -274,4 +274,5 @@ const ui = defineModule({
   },
 })
 
+// noinspection JSUnusedGlobalSymbols
 export default ui

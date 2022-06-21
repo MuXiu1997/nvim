@@ -44,4 +44,5 @@ const editor = defineModule({
   },
 })
 
+// noinspection JSUnusedGlobalSymbols
 export default editor

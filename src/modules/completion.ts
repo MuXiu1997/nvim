@@ -70,4 +70,5 @@ const completion = defineModule({
   },
 })
 
+// noinspection JSUnusedGlobalSymbols
 export default completion

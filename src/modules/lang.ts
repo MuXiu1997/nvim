@@ -14,4 +14,5 @@ const lang = defineModule({
   },
 })
 
+// noinspection JSUnusedGlobalSymbols
 export default lang
