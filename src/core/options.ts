@@ -17,6 +17,7 @@ setOptions({
   sidescrolloff: 15,
   smartcase: true,
   updatetime: 100,
+  guifont: 'JetBrainsMono_Nerd_Font:h16',
 
   // buffer
   expandtab: true,
