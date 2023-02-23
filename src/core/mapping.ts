@@ -2,6 +2,9 @@ const map = vim.api.nvim_set_keymap
 
 map('n', '<SPACE>nh', ':noh<CR>', { noremap: true })
 
+map('n', 'j', 'jzz', { noremap: true })
+map('n', 'k', 'kzz', { noremap: true })
+
 map('', '<SPACE>a', '^', { noremap: true })
 map('', '<SPACE>e', '$', { noremap: true })
 
