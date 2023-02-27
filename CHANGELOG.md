@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.1](https://github.com/MuXiu1997/nvim/compare/v0.3.0...v0.3.1) (2023-02-27)
+
+
+### Features
+
+* Add some mappings ([2ce819e](https://github.com/MuXiu1997/nvim/commit/2ce819ecfed36452ad959d80eda43dc02327af23))
+* Update nvim-treesitter config ([f2e3c64](https://github.com/MuXiu1997/nvim/commit/f2e3c64001045e67d5ed11818a00a5cd2a0423ab))
+
 ## [0.3.0](https://github.com/MuXiu1997/nvim/compare/v0.2.0...v0.3.0) (2022-06-21)
 
 
