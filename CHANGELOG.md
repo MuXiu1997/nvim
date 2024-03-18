@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/MuXiu1997/nvim/compare/v0.3.1...v0.4.0) (2024-03-18)
+
+
+### Features
+
+* remove `completion` and `lang` modules ([7719c8c](https://github.com/MuXiu1997/nvim/commit/7719c8c055d932f6eb4b0e24fa04686bbcd266d8))
+
 ### [0.3.1](https://github.com/MuXiu1997/nvim/compare/v0.3.0...v0.3.1) (2023-02-27)
 
 
