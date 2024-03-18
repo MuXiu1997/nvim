@@ -35,13 +35,6 @@ const editor = defineModule({
       )
     },
   },
-
-  'windwp/nvim-ts-autotag': {
-    after: 'nvim-treesitter', // BufRead
-    config: () => {
-      typeRequire<Setupable>('nvim-ts-autotag').setup()
-    },
-  },
 })
 
 // noinspection JSUnusedGlobalSymbols
