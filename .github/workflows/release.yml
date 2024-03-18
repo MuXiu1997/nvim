@@ -1,0 +1,67 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  NODE_VERSION: '20'
+  PNPM_VERSION: '8'
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Release
+        id: release
+        uses: google-github-actions/release-please-action@v3
+        with:
+          release-type: node
+
+      - name: Checkout
+        if: ${{ steps.release.outputs.release_created }}
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ steps.release.outputs.tag_name }}
+
+      - name: Setup Pnpm
+        if: ${{ steps.release.outputs.release_created }}
+        uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Setup Node
+        if: ${{ steps.release.outputs.release_created }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+          cache-dependency-path: '**/pnpm-lock.yaml'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install Node Dependencies
+        if: ${{ steps.release.outputs.release_created }}
+        run: pnpm install
+
+      - name: Build
+        if: ${{ steps.release.outputs.release_created }}
+        run: pnpm run build
+
+      - name: Zip release
+        if: ${{ steps.release.outputs.release_created }}
+        uses: TheDoctor0/zip-release@0.6.0
+        with:
+          type: 'zip'
+          directory: 'dist'
+          filename: '../nvim.zip'
+
+      - name: Upload release
+        if: ${{ steps.release.outputs.release_created }}
+        uses: softprops/action-gh-release@v0.1.14
+        with:
+          files: nvim.zip
