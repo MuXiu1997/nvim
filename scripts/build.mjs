@@ -20,8 +20,3 @@ fs.writeFileSync(
     `_G.__modules = {${modules.map((m) => `'${m}'`).join(',')}}`
   )
 )
-
-fs.writeFileSync(
-  'dist/coc-settings.json',
-  fs.readFileSync('src/coc-settings.json')
-)
