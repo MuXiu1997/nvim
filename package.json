@@ -1,7 +1,7 @@
 {
   "name": "nvim",
   "private": true,
-  "version": "0.4.0",
+  "version": "0.5.0",
   "type": "module",
   "scripts": {
     "dev": "chokidar 'src/**/*' 'types/**/*' -c 'pnpm run build'",
