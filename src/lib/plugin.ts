@@ -1,26 +1,12 @@
 /** @noSelfInFile **/
 
-import { arrayForEach, recordToArray } from './util'
-
-export type PluginConfigRecord = Record<string, PluginConf>
-
-export interface Module {
-  plugins: Array<Plugin>
+export function defineModule(plugins: Array<LazySpec>) {
+  return plugins
 }
 
-const defineModule = (pluginConfigRecord: PluginConfigRecord) => {
-  const module: Module = {
-    plugins: recordToArray(pluginConfigRecord, (name, conf) => {
-      return vim.tbl_extend('force', { 1: name }, conf) as Plugin
-    }),
+export function definePlugin(repo: string | undefined, spec: Omit<LazySpec, 1> = {}): LazySpec {
+  return {
+    1: repo,
+    ...spec,
   }
-  return module
 }
-
-const registerModule = (module: Module, use: Packer['use']) => {
-  arrayForEach(module.plugins, (_, plugin) => {
-    use(plugin)
-  })
-}
-
-export { defineModule, registerModule }

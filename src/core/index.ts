@@ -1,10 +1,3 @@
-import { ensurePlugins, loadCompiled } from './plugins'
-
-const skipInstall = !ensurePlugins()
-
+require('./pluginManager')
 require('./options')
 require('./mapping')
-
-if (skipInstall) {
-  loadCompiled()
-}

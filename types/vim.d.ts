@@ -2,6 +2,7 @@
 declare interface Vim {
   api: Api & { [k in string]: (this: void, ...args: any) => any }
   fn: Fn & { [k in string]: (this: void, ...args: any) => any }
+  fs: Fs
   loop: Loop
 
   g: Record<string, unknown>
@@ -12,41 +13,42 @@ declare interface Vim {
 
   cmd: (cmd: string) => void
   inspect: (o: unknown) => string
-  split: (
-    s: string,
-    sep: string,
-    kwargs?: { plain?: boolean; trimempty?: boolean }
-  ) => Array<string>
-  tbl_extend: (
-    behavior: 'error' | 'keep' | 'force',
-    ...tables: Array<Record<any, any>>
-  ) => Record<any, any>
+  split: (s: string, sep: string, kwargs?: { plain?: boolean; trimempty?: boolean }) => Array<string>
+  tbl_extend: (behavior: 'error' | 'keep' | 'force', ...tables: Array<Record<any, any>>) => Record<any, any>
 }
+
+interface StdpathMap {
+  cache: string
+  config: string
+  data: string
+  config_dirs: Array<string>
+  data_dirs: Array<string>
+}
+
+type StdpathParams = keyof StdpathMap
 
 /** @noSelf **/
 declare interface Fn {
-  empty(expr: unknown): 1 | 0
+  empty: (expr: unknown) => 1 | 0
 
-  filereadable(file: string): 1 | 0
+  filereadable: (file: string) => 1 | 0
 
-  glob(expr: unknown): string
+  glob: (expr: unknown) => string
 
-  globpath(path: string, expr: string): string
+  globpath: (path: string, expr: string) => string
 
-  join(list: Array<unknown>, sep?: string): string
+  join: (list: Array<unknown>, sep?: string) => string
 
-  split(string: string, pattern?: string, keepempty?: boolean): Array<string>
+  split: (string: string, pattern?: string, keepempty?: boolean) => Array<string>
 
-  stdpath(what: 'cache' | 'config' | 'data'): string
+  stdpath: <T extends StdpathParams>(what: T) => StdpathMap[T]
 
-  stdpath(what: 'config_dirs' | 'data_dirs'): Array<string>
-
-  system(cmd: string | Array<string>): string
+  system: (cmd: string | Array<string>) => string
 }
 
 /** @noSelf **/
 declare interface Api {
-  nvim_set_keymap(
+  nvim_set_keymap: (
     mode: '' | 'n' | 'v' | 's' | 'x' | 'o' | '!' | 'i' | 'l' | 'c' | 't',
     lhs: string,
     rhs: string,
@@ -57,24 +59,32 @@ declare interface Api {
       script?: boolean
       expr?: boolean
       unique?: boolean
-    }
-  ): void
-  nvim_replace_termcodes(
-    str: string,
-    fromPart: boolean,
-    doLt: boolean,
-    special: boolean
-  ): string
+    },
+  ) => void
+  nvim_replace_termcodes: (str: string, fromPart: boolean, doLt: boolean, special: boolean) => string
 }
 
 /** @noSelf **/
 declare interface Loop {
-  os_uname(): {
+  os_uname: () => {
     sysname: string
     release: string
     version: string
     machine: string
   }
 
-  os_homedir(): string
+  os_homedir: () => string
+
+  fs_stat: (path: string) => unknown | null
+}
+
+/** @noSelf **/
+declare interface Fs {
+  joinpath: (...args: Array<string>) => string
+}
+
+declare interface vimOptList<T> {
+  append: (e: T) => void
+  prepend: (e: T) => void
+  remove: (e: T) => void
 }
