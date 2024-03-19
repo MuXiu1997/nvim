@@ -2,17 +2,26 @@
   "name": "nvim",
   "private": true,
   "version": "0.4.0",
+  "type": "module",
   "scripts": {
     "dev": "chokidar 'src/**/*' 'types/**/*' -c 'pnpm run build'",
     "build": "scripts/build.mjs",
     "sync-local": "pnpm run build && scripts/sync-local.mjs"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "2.8.3",
     "@typescript-to-lua/language-extensions": "1.19.0",
     "chokidar-cli": "3.0.0",
+    "eslint": "8.57.0",
     "lua-types": "2.13.1",
+    "prettier": "3.2.5",
     "typescript": "5.4.2",
     "typescript-to-lua": "1.25.0",
     "zx": "7.2.3"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "quoteProps": "consistent"
   }
 }
