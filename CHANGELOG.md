@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/MuXiu1997/nvim/compare/v0.4.0...v0.5.0) (2024-03-19)
+
+
+### Features
+
+* migrate to `lazy.vim` ([5131fb7](https://github.com/MuXiu1997/nvim/commit/5131fb77fa86e7fe796fb6c9a257cf949ae36294))
+
 ## [0.4.0](https://github.com/MuXiu1997/nvim/compare/v0.3.1...v0.4.0) (2024-03-18)
 
 
